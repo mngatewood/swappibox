@@ -1,37 +1,17 @@
-import React, { Component } from 'react';
-import './styles/App.css';
-import './App.css';
+import React from 'react';
+import './CardContainer.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
-  myFunction = (parameter) => {
-
-  };
-
-  componentDidMount() {
-    //fetch API here
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <aside>
-          <ScrollingText />
-        </aside>
-        <main>
-        <ButtonContainer />
-        <CardContainer />
-        </main>
+const CardContainer = (film) => {
+  return (
+    <div>
+      <div className="default-prompt">
+        <h1>Select a Category</h1>
       </div>
-    );
-  }
-}
+      <div className="CardContainer">
+        
+      </div>
+    </div>
+  )
+} 
 
-export default App;
-
+export default CardContainer;

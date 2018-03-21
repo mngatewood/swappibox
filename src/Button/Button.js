@@ -1,37 +1,11 @@
-import React, { Component } from 'react';
-import './styles/App.css';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const Button = ({title}) => {
+  return (
+    <button>
+      {title}
+    </button>
+  )
+} 
 
-    };
-  }
-
-  myFunction = (parameter) => {
-
-  };
-
-  componentDidMount() {
-    //fetch API here
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <aside>
-          <ScrollingText />
-        </aside>
-        <main>
-        <ButtonContainer />
-        <CardContainer />
-        </main>
-      </div>
-    );
-  }
-}
-
-export default App;
-
+export default Button;

@@ -1,37 +1,20 @@
-import React, { Component } from 'react';
-import './styles/App.css';
-import './App.css';
+import React from 'react';
+import './ButtonContainer.css';
+import Button from '../Button/Button'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const ButtonContainer = ({favorites}) => {
+  const buttonKeys = ["People", "Planets", "Vehicles"]
+  const buttons = buttonKeys.map((button) => {
+    return <Button 
+      key={button} 
+      title={button} 
+    />
+  })
+  return (
+    <div className="ButtonContainer">
+      {buttons}
+    </div>
+  )
+} 
 
-    };
-  }
-
-  myFunction = (parameter) => {
-
-  };
-
-  componentDidMount() {
-    //fetch API here
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <aside>
-          <ScrollingText />
-        </aside>
-        <main>
-        <ButtonContainer />
-        <CardContainer />
-        </main>
-      </div>
-    );
-  }
-}
-
-export default App;
-
+export default ButtonContainer;
