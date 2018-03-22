@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import ScrollingText from '../ScrollingText/ScrollingText'
-import ButtonContainer from '../ButtonContainer/ButtonContainer'
-import CardContainer from '../CardContainer/CardContainer'
+import { ScrollingText } from '../ScrollingText/ScrollingText'
+import { ButtonContainer } from '../ButtonContainer/ButtonContainer'
+import { CardContainer } from '../CardContainer/CardContainer'
 import Utility from '../Utility/Utility';
 
 export default class App extends Component {
@@ -11,19 +11,36 @@ export default class App extends Component {
     this.state = {
       utility: new Utility(),
       film: {},
-      people: {},
-      favorites: []
+      people: [],
+      favorites: [],
+      activeButton: ''
+
     };
   }
 
   componentDidMount() {
-    this.getScrollingText();
+    this.fetchFilm();
   }
   
-  getScrollingText = () => {
+  fetchFilm = () => {
     const filmIndex = Math.floor(Math.random() * (8 - 1)) + 1;
-    this.state.utility.fetchFilm(filmIndex)
-      .then(result => this.setState({ film: result}))
+    const fetchURL = "https://swapi.co/api/films/"
+    return fetch(`${fetchURL}${filmIndex}/`)
+      .then(response => response.json())
+      .then(({ title, opening_crawl: text, release_date: date }) => {
+        const film = { title, text, date };
+        this.setState({ film })
+      })
+      .catch(error => ({ error }));
+  }
+
+  fetchPeople = () => {
+    const fetchURL = "https://swapi.co/api/people/"
+    return fetch(`${fetchURL}`)
+      .then(response => response.json())
+      .then(people => {
+        this.setState({ people: people.results })})
+      .catch(error => ({ error }));
   }
 
   render() {
@@ -38,9 +55,14 @@ export default class App extends Component {
             <button className="view-favorites">View Favorites
               <span className="count-favorites">{this.state.favorites.length}</span>
             </button>
-            <ButtonContainer favorites={this.state.favorites} />
+            <ButtonContainer 
+              favorites={this.state.favorites}
+              fetchPeople={this.fetchPeople}
+              />
           </header>
-          <CardContainer />
+          <CardContainer 
+            people={this.state.people}
+          />
         </main>
       </div>
     );

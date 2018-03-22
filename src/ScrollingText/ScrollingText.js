@@ -1,7 +1,7 @@
 import React from 'react';
 import './ScrollingText.css';
 
-const ScrollingText = ({film}) => {
+export const ScrollingText = ({film}) => {
 
   return(
     <div className="scrolling-text">
@@ -12,4 +12,4 @@ const ScrollingText = ({film}) => {
   )
 } 
 
-export default ScrollingText;
+// export default ScrollingText;
