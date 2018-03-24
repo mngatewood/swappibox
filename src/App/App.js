@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import { ScrollingText } from '../ScrollingText/ScrollingText'
-// import { ButtonContainer } from '../ButtonContainer/ButtonContainer'
-// import { CardContainer } from '../CardContainer/CardContainer'
-// import Utility from '../Utility/Utility';
-// import Stats from '../Utility/Stats';
 import Home from '../CardContainer/Home'
 import People from '../CardContainer/People'
 import Planets from '../CardContainer/Planets'
 import Vehicles from '../CardContainer/Vehicles'
-import mockPeople from '../mockData'
 
 export default class App extends Component {
   constructor(props) {
