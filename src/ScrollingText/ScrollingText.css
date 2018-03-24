@@ -1,28 +1,23 @@
-.App {
-  text-align: center;
+.scrolling-text {
+  height: 100%;
+  animation: 20s slide-up;
+  margin-top:0%;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.scrolling-text p {
+  color: rgba(255, 255, 255, 1);
+  font-size: 22px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+@keyframes slide-up {
+  from {
+    margin-top: 100vh;
+    height: 00%; 
+  }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
 }
