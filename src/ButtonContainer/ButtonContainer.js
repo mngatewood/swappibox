@@ -12,7 +12,7 @@ export const ButtonContainer = ({ favorites, fetchPeople }) => {
     />
   })
   return (
-    <div className="ButtonContainer">
+    <div className="button-container">
       {buttons}
     </div>
   )

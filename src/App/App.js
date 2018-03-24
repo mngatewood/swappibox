@@ -1,25 +1,38 @@
 import React, { Component } from 'react';
+import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import { ScrollingText } from '../ScrollingText/ScrollingText'
-import { ButtonContainer } from '../ButtonContainer/ButtonContainer'
-import { CardContainer } from '../CardContainer/CardContainer'
-import Utility from '../Utility/Utility';
+// import { ButtonContainer } from '../ButtonContainer/ButtonContainer'
+// import { CardContainer } from '../CardContainer/CardContainer'
+// import Utility from '../Utility/Utility';
+// import Stats from '../Utility/Stats';
+import Home from '../CardContainer/Home'
+import People from '../CardContainer/People'
+import Planets from '../CardContainer/Planets'
+import Vehicles from '../CardContainer/Vehicles'
+import mockPeople from '../mockData'
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      utility: new Utility(),
+      categoriesArray: [],
+      // utility: new Utility(),
       film: {},
       people: [],
+      planets: [],
+      vehicles: [],
       favorites: [],
-      activeButton: ''
-
     };
   }
 
   componentDidMount() {
+    this.updateState();
+  }
+
+  updateState = () => {
     this.fetchFilm();
+    this.fetchPeople();
   }
   
   fetchFilm = () => {
@@ -36,33 +49,76 @@ export default class App extends Component {
 
   fetchPeople = () => {
     const fetchURL = "https://swapi.co/api/people/"
-    return fetch(`${fetchURL}`)
-      .then(response => response.json())
-      .then(people => {
-        this.setState({ people: people.results })})
-      .catch(error => ({ error }));
+    return fetch(fetchURL)
+    .then(response => response.json())
+    .then(people => (
+      this.fetchSpecies(people.results)
+    ))
+    .then(peopleNameAndSpecies => (
+      this.fetchHomeWorlds(peopleNameAndSpecies)
+    ))
+    .then(peopleNameSpeciesAndHomeWorld => {
+      this.setState({people: peopleNameSpeciesAndHomeWorld})
+    })
+    .catch(error => ({ error }));
   }
+  
+  fetchSpecies = (people) => {
+    const promises = people.map(person => {
+      return fetch(person.species)
+      .then(response => response.json())
+      .then(speciesDetails => ({ 
+        name: person.name,
+        speciesName: speciesDetails.name, 
+        homeWorld: person.homeworld
+      }))
+      .catch(error => (error));
+    });
+    return Promise.all(promises);
+  };
+  
+  fetchHomeWorlds = (peopleNameAndSpecies) => {
+    const promises = peopleNameAndSpecies.map(person => {
+      return fetch(person.homeWorld)
+      .then(response => response.json())
+      .then(homeWorldDetails => ({
+        name: person.name,
+        species: person.speciesName,
+        homeWorld: homeWorldDetails.name,
+        population: homeWorldDetails.population
+      }))
+      .catch(error => this.setState(error));
+    });
+    return Promise.all(promises);
+  };
 
   render() {
     return (
       <div className="App">
         <aside>
-          <ScrollingText film={this.state.film} />
+          <ScrollingText id="scrollMe" film={this.state.film} />
         </aside>
         <main>
-          <header>
-            <h2>SWAPIbox</h2>
-            <button className="view-favorites">View Favorites
-              <span className="count-favorites">{this.state.favorites.length}</span>
-            </button>
-            <ButtonContainer 
-              favorites={this.state.favorites}
-              fetchPeople={this.fetchPeople}
-              />
-          </header>
-          <CardContainer 
-            people={this.state.people}
-          />
+            <header className="title-container">
+              <Link to='/'><h2>SWAPIbox</h2></Link>
+              <button className="view-favorites">View Favorites
+                <span className="count-favorites">{this.state.favorites.length}</span>
+              </button>       
+            </header>
+            <section className="button-container">
+              <NavLink to='/people'><button className='nav'>People</button></NavLink>
+              <NavLink to='/planets'><button className='nav'>Planets</button></NavLink>
+              <NavLink to='/vehicles'><button className='nav'>Vehicles</button></NavLink>
+            </section>
+            <section>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/people' render={ () => <People 
+                people={this.state.people} 
+                updateState={this.updateState}
+                /> } />
+              <Route exact path='/planets' component={Planets} />
+              <Route exact path='/vehicles' component={Vehicles} />
+            </section>
         </main>
       </div>
     );
