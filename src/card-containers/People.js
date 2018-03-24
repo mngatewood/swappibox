@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../Card/Card'
 
 const People = (people, fetchPeople) => {
-  const cardData = people.people.map((person, index) => {
+  const cardData = people.people && people.people.map((person, index) => {
     return <Card
       key={"person" + index}
       name={person.name}
