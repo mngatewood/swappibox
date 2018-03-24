@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Stats from '../Utility/Stats'
+import React from 'react';
 import Card from '../Card/Card'
 
 const People = (people, fetchPeople) => {

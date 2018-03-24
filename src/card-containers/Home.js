@@ -1,5 +1,4 @@
 import React from 'react';
-import Stats from '../Utility/Stats'
 
 const Home = () => {
   const displayHome = "Select a Category"
