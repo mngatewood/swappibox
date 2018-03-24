@@ -1,37 +1,23 @@
 import React, { Component } from 'react';
-import './styles/App.css';
-import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
+export default class Button extends Component {
+  constructor({ fetchPeople }) {
+    super();
   }
 
-  myFunction = (parameter) => {
-
-  };
-
-  componentDidMount() {
-    //fetch API here
+  categoryClick = (title) => {
+    if(title === "People") {
+      this.props.fetchPeople();
+    }
   }
 
-  render() {
+  render () {
+
     return (
-      <div className="App">
-        <aside>
-          <ScrollingText />
-        </aside>
-        <main>
-        <ButtonContainer />
-        <CardContainer />
-        </main>
-      </div>
-    );
+      <button id={this.props.title} 
+        onClick={() => this.categoryClick(this.props.title)}>
+        {this.props.title}
+      </button>
+    )
   }
-}
-
-export default App;
-
+} 

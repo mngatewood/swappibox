@@ -1,37 +1,25 @@
-import React, { Component } from 'react';
-import './styles/App.css';
-import './App.css';
+import React from 'react';
+import './CardContainer.css';
+import { Card } from '../Card/Card'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
-  myFunction = (parameter) => {
-
-  };
-
-  componentDidMount() {
-    //fetch API here
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <aside>
-          <ScrollingText />
-        </aside>
-        <main>
-        <ButtonContainer />
-        <CardContainer />
-        </main>
+export const CardContainer = ({ people }) => {
+  const cardData = people.map((person, index) => {
+    return <Card
+              key={index} 
+              name={person.name}
+            />
+  }) 
+  const promptClass = people ? "hidden" : "default-prompt";
+  return (
+    <div>
+      <div className={promptClass}>
+        <h1>Select a Category</h1>
       </div>
-    );
-  }
-}
+      <div className="CardContainer">
+        {cardData}
+      </div>
+    </div>
+  )
+} 
 
-export default App;
-
+// export default CardContainer;
