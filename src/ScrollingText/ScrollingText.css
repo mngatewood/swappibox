@@ -1,4 +1,23 @@
 .scrolling-text {
-  flex: 400px;
-  font-size: 24px;
+  height: 100%;
+  animation: 20s slide-up;
+  margin-top:0%;
+
+}
+
+.scrolling-text p {
+  color: rgba(255, 255, 255, 1);
+  font-size: 22px;
+}
+
+@keyframes slide-up {
+  from {
+    margin-top: 100vh;
+    height: 00%; 
+  }
+
+  to {
+    margin-top: 0%;
+    height: 100%;
+  }
 }
