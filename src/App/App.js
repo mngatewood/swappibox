@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import { ScrollingText } from '../ScrollingText/ScrollingText'
-import Home from '../CardContainer/Home'
-import People from '../CardContainer/People'
-import Planets from '../CardContainer/Planets'
-import Vehicles from '../CardContainer/Vehicles'
+import Home from '../card-containers/Home'
+import People from '../card-containers/People'
+import Planets from '../card-containers/Planets'
+import Vehicles from '../card-containers/Vehicles'
 
 export default class App extends Component {
   constructor(props) {

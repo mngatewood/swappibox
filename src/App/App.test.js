@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { shallow, mount, render, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
 
 describe('App', () => {
-  it('should render without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
-  })
+
+  configure({ adapter: new Adapter() });
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  // it('should render without crashing', () => {
+  //   const div = document.createElement('div');
+  //   ReactDOM.render(<App />, div);
+  //   ReactDOM.unmountComponentAtNode(div);
+  // })
 
   it('should match the snapshot', () => {
-
+    expect(wrapper).toMatchSnapshot();
   })
 
   it('should call fetchFilm with no parameters on mount', () => {
