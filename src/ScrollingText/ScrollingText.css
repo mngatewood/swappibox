@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "News Gothic Regular";
+    src: url("../assets/fonts/NewsGothicRegular.otf") format("opentype");
+}
 .scrolling-text {
   height: 100%;
   animation: 20s slide-up;
@@ -7,7 +11,9 @@
 
 .scrolling-text p {
   color: rgba(255, 255, 255, 1);
-  font-size: 22px;
+  font-family: "News Gothic Regular";
+  font-size: 2.8vh;
+  text-align: justify;
 }
 
 @keyframes slide-up {

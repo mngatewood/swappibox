@@ -9,6 +9,7 @@ export const ButtonContainer = ({ favorites, fetchPeople }) => {
       key={button} 
       title={button} 
       fetchPeople={fetchPeople}
+      image={`${button}Image`}
     />
   )})
   return (

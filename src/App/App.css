@@ -1,78 +1,120 @@
+@font-face {
+  font-family: "Distant Galaxy";
+  src: url("../assets/fonts/SFDistantGalaxy.woff") format("woff");
+  font-weight:400;
+}
+
+@font-face {
+  font-family: "Anakin Mono";
+  src: url("../assets/fonts/anakinmono.woff") format("woff");
+  font-weight:400;
+}
+
 .App {
+  text-align: center;
+}
+
+header {
   display: flex;
-  text-align: center;
-}
-
-aside {
-  /* float: left;
   position: fixed;
-  width: 300px; */
-  flex: 0 0 300px;
-  height: 100%;
-  padding: 15px;
-  background-color: rgba(45, 45, 45, 1);
-  overflow: hidden;
-}
-
- main {
-  flex: 1;
-  /* position: relative;
-  height: auto;
-  left: 350px; */
-  /* margin-top: 200px; */
-  overflow: hidden;
-} 
-
-header.title-container {
-  flex: 1;
-  /* position: fixed;
-  width: auto;
-  height: 100px;
-  top: 0; */
-  /* margin-left: 350px; */
-  overflow: hidden;
+  width: 100vw;
+  height: 102px;
+  top: 0;
   align-content: center;
-}  
-
-header h2 {
-  text-align: center;
-  font-size: 48px;
+  background-color: rgba(45, 45, 45, 1);
 }
 
-.view-favorites {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 36px;
-  width: auto;
-  font-size: 12px;
+.title-container {
+  flex: 1 1 50%;
+  padding: 15px 0;
+}
+
+.title-container h2 {
+  margin: 22px 15px;
+  text-align: center;
+  font-family: "Distant Galaxy";
+  font-size: 42px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.title-container a {
+  text-decoration: none;
+}
+
+nav {
+  padding: 0;
+  flex: 0 0 460px;
+  display: inline-block;
+  justify-content: space-around;
+}
+
+button {
+  flex: 1;
+  /* margin-top: -10px; */
+  width: 100px;
+  height: 100px;
+  font-size: auto;
+  cursor: pointer;
+  background-color: rgba(45, 45, 45, 1);
+  border: none;
+  border-left: 1px lightgray solid;
+}
+
+button img {
+  height: 30px;
+  margin: 22px;
+}
+
+button h4 {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
+  margin: -10px 0 15px 0;
 }
 
 .count-favorites {
-  padding: 5px;;
-  margin: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 1)
-}
+  position: relative;
+  top: -10px;
+  font-size: 36px;
+  width: 50px;
+  color: rgba(255, 255, 255, 1);
+  cursor: default;
+  border: none;
+}  
 
-.button-container {
+main {
   display: flex;
-  justify-content: space-around;
-  /* position: fixed;
-  top: 100px; */
+  /* position: fixed; */
+  height: 100vh;
+  margin-top: 100px;
+  overflow-y: auto;
+  /* background-image: url("../assets/images/stars-background.jpg"); */
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
-button.nav {
-  flex: 1;
-  margin: 20px;
+main h2 {
+  margin-left: 300px;
 }
+
+aside {
+  flex: 0 0 270px;
+  position: fixed;
+  top: 100px;
+  width: 270px;
+  height: 100vh;
+  padding: 15px;
+  /* background-color: rgba(0, 0, 0, 1); */
+  overflow: hidden;
+}    
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow: auto;
-  margin: 20px;
+  overflow-y: auto;
+  top: 100px;
+  margin-left: 300px;
+  padding: 15px 0;
   height: auto;
   width: auto;
 }

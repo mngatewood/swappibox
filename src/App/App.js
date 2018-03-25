@@ -5,7 +5,12 @@ import { ScrollingText } from '../ScrollingText/ScrollingText'
 import Home from '../cardContainers/Home'
 import People from '../cardContainers/People'
 import Planets from '../cardContainers/Planets'
-import Vehicles from '../cardContainers/Vehicles'
+import Vehicles from '../cardContainers/Vehicles';
+import peopleIcon from '../assets/images/people-icon.svg';
+import planetsIcon from '../assets/images/planets-icon.svg';
+import vehiclesIcon from '../assets/images/vehicles-icon.svg';
+import favoritesIcon from '../assets/images/favorites-icon.svg';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -90,30 +95,51 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <aside>
-          <ScrollingText id="scrollMe" film={this.state.film} />
-        </aside>
+        <header>
+          <div className="title-container">
+            <Link to='/'><h2>SWAPIbox</h2></Link>
+          </div>
+          <nav className="button-container">
+            <NavLink to='/people'>
+              <button>
+                <img src={peopleIcon} alt="people icon" />
+                <h4>People</h4>
+              </button>
+            </NavLink>
+            <NavLink to='/planets'>
+              <button>
+                <img src={planetsIcon} alt="planets icon" />
+                <h4>Planets</h4>
+              </button>
+            </NavLink>
+            <NavLink to='/vehicles'>
+              <button>
+                <img src={vehiclesIcon} alt="vehicles icon" />
+                <h4>Vehicles</h4>
+              </button>
+            </NavLink>
+            <NavLink to='/favorites'>
+              <button>
+                <img src={favoritesIcon} alt="favorites icon" />
+                <h4>Favorites</h4>             
+              </button>
+            </NavLink>
+            <button className="count-favorites">{this.state.favorites.length}</button>
+          </nav>
+        </header>
         <main>
-            <header className="title-container">
-              <Link to='/'><h2>SWAPIbox</h2></Link>
-              <button className="view-favorites">View Favorites
-                <span className="count-favorites">{this.state.favorites.length}</span>
-              </button>       
-            </header>
-            <section className="button-container">
-              <NavLink to='/people'><button className='nav'>People</button></NavLink>
-              <NavLink to='/planets'><button className='nav'>Planets</button></NavLink>
-              <NavLink to='/vehicles'><button className='nav'>Vehicles</button></NavLink>
-            </section>
-            <section>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/people' render={ () => <People 
-                people={this.state.people} 
-                updateState={this.updateState}
-                /> } />
-              <Route exact path='/planets' component={Planets} />
-              <Route exact path='/vehicles' component={Vehicles} />
-            </section>
+          <aside>
+            <ScrollingText id="scrollMe" film={this.state.film} />
+          </aside>
+          <section className="content">
+            <Route exact path='/' component={Home} />
+            <Route exact path='/people' render={ () => <People 
+              people={this.state.people} 
+              updateState={this.updateState}
+              /> } />
+            <Route exact path='/planets' component={Planets} />
+            <Route exact path='/vehicles' component={Vehicles} />
+          </section>
         </main>
       </div>
     );
