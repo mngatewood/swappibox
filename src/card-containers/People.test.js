@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { shallow, mount, render } from 'enzyme';
 import People from './People';
 
 describe('People', () => {

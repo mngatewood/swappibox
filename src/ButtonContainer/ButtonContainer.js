@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ButtonContainer.css';
 
 export const ButtonContainer = ({ favorites, fetchPeople }) => {
