@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import { ScrollingText } from '../ScrollingText/ScrollingText'
-import Home from '../card-containers/Home'
-import People from '../card-containers/People'
-import Planets from '../card-containers/Planets'
-import Vehicles from '../card-containers/Vehicles'
+import Home from '../cardContainers/Home'
+import People from '../cardContainers/People'
+import Planets from '../cardContainers/Planets'
+import Vehicles from '../cardContainers/Vehicles'
 
 export default class App extends Component {
   constructor(props) {
@@ -26,12 +26,12 @@ export default class App extends Component {
   }
 
   updateState = () => {
-    this.fetchFilm();
+    this.fetchFilm(Math.floor(Math.random() * (8 - 1)) + 1);
     this.fetchPeople();
   }
   
-  fetchFilm = () => {
-    const filmIndex = Math.floor(Math.random() * (8 - 1)) + 1;
+  fetchFilm = (filmIndex) => {
+    // const filmIndex = Math.floor(Math.random() * (8 - 1)) + 1;
     const fetchURL = "https://swapi.co/api/films/"
     return fetch(`${fetchURL}${filmIndex}/`)
       .then(response => response.json())

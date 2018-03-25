@@ -4,7 +4,7 @@ import './ScrollingText.css';
 
 export const ScrollingText = ({film}) => {
   const year = film.date;
-  if (year) {
+  // if (year) {
     return(
       <div className="scrolling-text">
         <p>{film.text}</p>
@@ -12,5 +12,5 @@ export const ScrollingText = ({film}) => {
         <p>{year}</p>
       </div>
     )
-  }
+  // }
 } 
