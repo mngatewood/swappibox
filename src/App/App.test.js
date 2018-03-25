@@ -3,89 +3,127 @@ import ReactDOM from 'react-dom';
 import { shallow, mount, render, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
+import mockFilm from '../mockData/mockFilm'
+import mockPeople from '../mockData/mockPeople'
 
 describe('App', () => {
 
   configure({ adapter: new Adapter() });
+
+  it('should render without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
+  it('should match the snapshot', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
+  })
+
+});
+
+describe('Scrolling Text', () => {
+
+  // configure({ adapter: new Adapter() });
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(<App />);
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+      {
+        ok: true,
+        json: () => Promise.resolve(mockFilm)
+      }
+    ));
   });
 
-  // it('should render without crashing', () => {
-  //   const div = document.createElement('div');
-  //   ReactDOM.render(<App />, div);
-  //   ReactDOM.unmountComponentAtNode(div);
-  // })
-
-  it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot();
-  })
-
   it('should call fetchFilm with no parameters on mount', () => {
-    //componentDidMount
-    //expect fetchFilm toHaveBeenCalled
+    const mockFetchFilm = jest.spyOn(App.prototype, 'componentDidMount');
+    const wrapper = shallow(<App />);
+    wrapper.instance().componentDidMount;
+    expect(mockFetchFilm).toHaveBeenCalled();
+    mockFetchFilm.mockClear();
   })
 
   it('should call fetch (film) with correct parameters', () => {
-    //instance fetchFilm
-    //expect fetch toHaveBeenCalledWith
+    const expected = 'https://swapi.co/api/films/5/';
+    wrapper.instance().fetchFilm(5);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   })
 
-  it('should display a random opening text once fetched', () => {
-    //snapshot after scrolling text is fetched
+  it('should display a random opening text once fetched', async () => {
+    //validate
+    await wrapper.instance().componentDidMount;
+    expect(wrapper).toMatchSnapshot;
   })
+
+});
+
+describe('People', () => {
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+      {
+        ok: true,
+        json: () => Promise.resolve(mockPeople)
+      }
+    ));
+  });
 
   it('should call fetchPeople with no parameters on mount', () => {
-    //componentDidMount
-    //expect fetchPeople toHaveBeenCalledWith
+    const mockFetchPeople = jest.spyOn(App.prototype, 'componentDidMount');
+    const wrapper = shallow(<App />);
+    wrapper.instance().componentDidMount;
+    expect(mockFetchPeople).toHaveBeenCalled();
+    mockFetchPeople.mockClear();
   })
 
   it('should call fetch (people) with no parameters', () => {
-    //instance fetchPeople
-    //expect mock fetch toHaveBeenCalledWith
+    const expected = 'https://swapi.co/api/people/';
+    wrapper.instance().fetchPeople();
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   })
 
-  it('should call fetchSpecies with correct parameters', () => {
-    //instance fetchPeople
-    //expect fetchSpecies toHaveBeenCalledWith
+  it('should call fetchSpecies with correct parameters', async () => {
+    const mockFetchSpecies = jest.spyOn(App.prototype, 'componentDidMount');
+    const wrapper = shallow(<App />);
+    await wrapper.instance().componentDidMount();
+    expect(mockFetchSpecies).toHaveBeenCalled();
+    mockFetchSpecies.mockClear();
   })
 
   it('should call fetch (people.species) with correct parameters', () => {
-    //instance fetchSpecies
-    //expect mock fetch toHaveBeenCalledWith
+    const mockPerson = mockPeople[0];
+    const expected = mockPerson.species;
+    wrapper.instance().fetchSpecies(mockPeople);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   })
 
   it('should call fetchHomeWorlds with correct parameters', () => {
-    //instance fetchSpecies
-    //expect fetchHomeWorlds toHaveBeenCalledWith
+    const mockFetchSpecies = jest.spyOn(App.prototype, 'componentDidMount');
+    const wrapper = shallow(<App />);
+    wrapper.instance().componentDidMount;
+    expect(mockFetchSpecies).toHaveBeenCalled();
+    mockFetchSpecies.mockClear();
   })
 
-  it('should call fetch (people.homeworlds) with correct parameters', () => {
-    //instance fetchHomeWorlds
-    //expect fetch toHaveBeenCalledWith
+  it('should call fetch (people.homeworlds) with correct parameters', async () => {
+    const mockPerson = mockPeople[0];
+    const expected = [mockPerson][0].homeworld;
+    await wrapper.instance().fetchHomeWorlds([mockPerson]);
+    expect(window.fetch).toHaveBeenCalledWith(expected);
   })
 
-  it('should update state when fetch is complete', () => {
-    //instance fetchHomeWorlds
+  it('should update state when fetch is complete', async () => {
+    await wrapper.instance().fetchPeople();
+    expect(wrapper.state('people')).toEqual(mockPeople)
 
-  })
-
-  it('should display three category buttons', () => {
-    //snapshot
-  })
-
-  it('should display a view favorites button', () => {
-    //snapshot
-  })
-
-  it('should default to home page', () => {
-    //snapshot
-  })
-
-  it('should populate people when button is clicked', () => {
-    //
   })
 
 });

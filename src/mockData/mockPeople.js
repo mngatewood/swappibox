@@ -272,4 +272,4 @@ const mockPeople = [
   }
 ]
 
-export default mockPeople
+export default mockPeople;
