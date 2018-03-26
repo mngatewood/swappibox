@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const mockFilm = {
   "title": "Attack of the Clones",
   "episode_id": 2,

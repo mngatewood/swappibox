@@ -1,5 +1,6 @@
 import React from 'react';
-import Card from '../Card/Card'
+import PropTypes from 'prop-types';
+import Card from '../Card/Card';
 
 const People = (people) => {
   const cardData = people.people && people.people.map((person, index) => {
@@ -11,13 +12,17 @@ const People = (people) => {
       population={person.population} 
       toggleFavorite={people.toggleFavorite}
 
-    />
-  })
-    return (
-      <div className="card-container">
-        {cardData}
-      </div>
-    )
-}
+    />;
+  });
+  return (
+    <div className="card-container">
+      {cardData}
+    </div>
+  );
+};
+
+People.propTypes = {
+  people: PropTypes.object
+};
 
 export default People;

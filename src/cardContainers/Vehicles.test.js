@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import Vehicles from './Vehicles';
 
 describe('Vehicles', () => {
@@ -8,12 +8,11 @@ describe('Vehicles', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Vehicles />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
+  });
 
   it('should match the snapshot', () => {
-    //mock people props
-    //wrapper with people props
-    //expect snapshot
-  })
+    const wrapper = shallow(<Vehicles />);
+    expect(wrapper).toMatchSnapshot();
+  });
 
 });
