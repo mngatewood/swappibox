@@ -6,6 +6,7 @@ import Home from '../cardContainers/Home'
 import People from '../cardContainers/People'
 import Planets from '../cardContainers/Planets'
 import Vehicles from '../cardContainers/Vehicles';
+import Favorites from '../cardContainers/Favorites';
 import peopleIcon from '../assets/images/people-icon.svg';
 import planetsIcon from '../assets/images/planets-icon.svg';
 import vehiclesIcon from '../assets/images/vehicles-icon.svg';
@@ -16,8 +17,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoriesArray: [],
-      // utility: new Utility(),
       film: {},
       people: [],
       planets: [],
@@ -31,12 +30,12 @@ export default class App extends Component {
   }
 
   updateState = () => {
-    this.fetchFilm(Math.floor(Math.random() * (8 - 1)) + 1);
+    const filmIndex = (Math.floor(Math.random() * (8 - 1)) + 1)
+    this.fetchFilm(filmIndex);
     this.fetchPeople();
   }
   
   fetchFilm = (filmIndex) => {
-    // const filmIndex = Math.floor(Math.random() * (8 - 1)) + 1;
     const fetchURL = "https://swapi.co/api/films/"
     return fetch(`${fetchURL}${filmIndex}/`)
       .then(response => response.json())
@@ -92,6 +91,23 @@ export default class App extends Component {
     return Promise.all(promises);
   };
 
+  toggleFavorite =(favoriteCardInfo) => {
+    let originalFavorites = [...this.state.favorites];
+    let newFavorites = originalFavorites.map((favorite, index) => {
+      if(favorite.name === favoriteCardInfo.name) {
+        return originalFavorites.splice(index, 1);
+      }
+    })
+    if(newFavorites.length === originalFavorites.length) {
+      newFavorites.push(favoriteCardInfo);
+    }
+    this.setState({ favorites: newFavorites });
+    console.log("new", newFavorites);
+    console.log("original", originalFavorites);
+    console.log("card", favoriteCardInfo);
+    console.log("state", this.state.favorites);
+  }
+    
   render() {
     return (
       <div className="App">
@@ -137,10 +153,14 @@ export default class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/people' render={ () => <People 
               people={this.state.people} 
-              updateState={this.updateState}
+              toggleFavorite={this.toggleFavorite}
               /> } />
             <Route exact path='/planets' component={Planets} />
             <Route exact path='/vehicles' component={Vehicles} />
+            <Route exact path='/favorites' render={() => <Favorites
+              people={this.state.favorites}
+              toggleFavorite={this.toggleFavorite}
+            />} />
           </section>
         </main>
       </div>
