@@ -100,8 +100,8 @@ export default class App extends Component {
             <Link to='/'><h2>SWAPIbox</h2></Link>
           </div>
           <nav className="button-container">
-            <NavLink to='/people'>
-              <button>
+            <NavLink to='/people' activeStyle={{ color: 'black' }} >
+              <button  >
                 <img src={peopleIcon} alt="people icon" />
                 <h4>People</h4>
               </button>

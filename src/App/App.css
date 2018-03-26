@@ -75,6 +75,11 @@ button#favorites {
   width: 150px;
 }
 
+.selected {
+  background-color: rgba(211, 211, 211, 0.8);
+  border-style: inset;
+}
+
 .count-container {
   position: absolute;
   top: 0px;
@@ -93,8 +98,8 @@ button#favorites {
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.5);
-  border-left: 2px rgba(255, 255, 255, 1) solid;
-  border-bottom: 2px rgba(255, 255, 255, 1) solid;
+  border-left: 2px rgba(255, 255, 255, 1) inset;
+  border-bottom: 2px rgba(255, 255, 255, 1) inset;
 }
 
 button #favorites:hover .count-container {
