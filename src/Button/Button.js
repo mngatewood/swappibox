@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Button.css';
 import PeopleImage from './assets/images/people.svg';
 import PlanetsImage from './assets/images/planets.svg';
 import VehiclesImage from './assets/images/vehicles.svg';

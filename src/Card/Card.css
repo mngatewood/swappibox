@@ -1,39 +1,37 @@
 .Card {
   display: flex;
   flex-direction: column;
-  /* justify-content: top; */
-  flex: 0 0 180px;
+  flex: 0 0 190px;
   border: 3px solid rgba(0, 0, 0, 1);  
   border-radius: 20px;
-  /* width: 190px; */
   height: 300px;
   padding: 0px;
-  margin: 10px;
-  cursor: pointer;
+  margin: 5px;
   overflow: hidden;
   background-color: rgba(45, 45, 45, 1);
-  /* align-content: center; */
 }
 
 .Card .title {
   flex: 0 0 50px;
   border-top: 0;
-  /* border: 3px solid rgba(0, 0, 0, 1);   */
   border-radius: 16px 16px 0 0;
   background-color: lightgrey;
   color: rgba(45, 45, 45, 1);
-
 }
 
-.Card main {
+.title h3 {
+  margin: 15px 5px;
+}
+
+.card-main {
   flex: 0 0 180px;
   display: flex;
   flex-direction: column;
   padding: 10px 0;
   margin-top: 0;
   overflow: hidden;
-  background: rgba(45, 45, 45, 1))
   background-color: rgba(45, 45, 45, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .Card .stat-title {
@@ -42,16 +40,46 @@
 
 .Card .stat {
   margin-top: 10px;
-  color: rgba(0, 0, 0, 1);
 }
 
-.Card button {
-  width: 80%;
-  height: 30px;
-  margin: 0 10% 10% 10%;
+.Card .footer {
+  flex: 0 0 50px;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  background-color: lightgrey;
+  color: rgba(45, 45, 45, 1);
+  text-align: left;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Card .add-to-favorites {
+  position: relative;
+  left: 10px;
+  top: -24px;
+  left: 10px;
+  width: 80px;
+  height: 40px;
+  margin-right: 20px;
+  background-color: lightgrey;
+  border: none;
+  color: rgba(45, 45, 45, 1);
+  font-size: 16px;
+  text-align: left;
+}
+
+.Card img {
+  position: relative;
+  left: 20px;
+  height: 40px;
+  width: 40px;
 }
 
 .Card:hover {
   border-color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.Card:hover .card-main{
   background-color: rgba(0, 0, 0, 1);
 }

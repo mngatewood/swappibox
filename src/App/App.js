@@ -119,12 +119,14 @@ export default class App extends Component {
               </button>
             </NavLink>
             <NavLink to='/favorites'>
-              <button>
+              <button id="favorites">
                 <img src={favoritesIcon} alt="favorites icon" />
                 <h4>Favorites</h4>             
               </button>
             </NavLink>
-            <button className="count-favorites">{this.state.favorites.length}</button>
+            <div className="count-container">
+              <div className="count-favorites">{this.state.favorites.length}</div>
+            </div>
           </nav>
         </header>
         <main>

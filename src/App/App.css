@@ -19,7 +19,7 @@ header {
   position: fixed;
   width: 100vw;
   height: 102px;
-  top: 0;
+  top: 2px;
   align-content: center;
   background-color: rgba(45, 45, 45, 1);
 }
@@ -56,7 +56,7 @@ button {
   font-size: auto;
   cursor: pointer;
   background-color: rgba(45, 45, 45, 1);
-  border: none;
+  border: 2px rgba(45, 45, 45, 1) solid;
   border-left: 1px lightgray solid;
 }
 
@@ -71,15 +71,37 @@ button h4 {
   margin: -10px 0 15px 0;
 }
 
-.count-favorites {
-  position: relative;
-  top: -10px;
+button#favorites {
+  width: 150px;
+}
+
+.count-container {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  padding-top: 20px;
+  height: 80px;
   font-size: 36px;
   width: 50px;
   color: rgba(255, 255, 255, 1);
   cursor: default;
   border: none;
+}
+
+.count-favorites {
 }  
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-left: 2px rgba(255, 255, 255, 1) solid;
+  border-bottom: 2px rgba(255, 255, 255, 1) solid;
+}
+
+button #favorites:hover .count-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* border-left: 2px rgba(255, 255, 255, 1) solid; */
+  border-bottom: 2px rgba(255, 255, 255, 1) solid;
+}
 
 main {
   display: flex;
@@ -87,7 +109,7 @@ main {
   height: 100vh;
   margin-top: 100px;
   overflow-y: auto;
-  /* background-image: url("../assets/images/stars-background.jpg"); */
+  background-image: url("../assets/images/stars-background.jpg");
   background-color: rgba(0, 0, 0, 1);
   color: rgba(255, 255, 255, 1);
 }
