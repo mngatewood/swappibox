@@ -14,3 +14,7 @@ export const ScrollingText = ({film}) => {
     )
   // }
 } 
+
+ScrollingText.propTypes = {
+  people: PropTypes.object
+};

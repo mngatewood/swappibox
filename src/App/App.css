@@ -87,7 +87,7 @@ button#favorites {
   padding-top: 20px;
   height: 80px;
   font-size: 36px;
-  width: 50px;
+  min-width: 50px;
   color: rgba(255, 255, 255, 1);
   cursor: default;
   border: none;

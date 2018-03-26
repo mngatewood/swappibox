@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from '../Card/Card'
 
 const People = (people) => {
@@ -19,5 +20,9 @@ const People = (people) => {
       </div>
     )
 }
+
+People.propTypes = {
+  people: PropTypes.object
+};
 
 export default People;

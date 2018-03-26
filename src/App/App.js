@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Route, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import { ScrollingText } from '../ScrollingText/ScrollingText'
 import Home from '../cardContainers/Home'
@@ -96,6 +96,8 @@ export default class App extends Component {
     let newFavorites = originalFavorites.map((favorite, index) => {
       if(favorite.name === favoriteCardInfo.name) {
         return originalFavorites.splice(index, 1);
+      // } else {
+      //   return originalFavorites;
       }
     })
     if(newFavorites.length === originalFavorites.length) {
