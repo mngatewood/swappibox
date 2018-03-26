@@ -8,7 +8,7 @@ This project is a card-based interface displaying key information on the people,
 
 ## Screen Shot
 
-
+https://raw.githubusercontent.com/mngatewood/swappibox/master/src/assets/images/screen-shot.png
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
