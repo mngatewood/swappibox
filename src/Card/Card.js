@@ -17,7 +17,7 @@ const Card = (props) => {
           <h4 className='stat-title'>{Object.keys(props)[3].toUpperCase()}: </h4>
           <p className='stat'>{props.population }</p>
           </div>
-          <div className="footer">
+        <div className="footer" onClick={() => { props.toggleFavorite(props) }}>
             <button className="add-to-favorites">Add to Favorites</button>
             <img src={favoritesIcon} alt="favorites icon" />
           </div>

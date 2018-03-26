@@ -19,7 +19,7 @@ header {
   position: fixed;
   width: 100vw;
   height: 102px;
-  top: 2px;
+  top: 0;
   align-content: center;
   background-color: rgba(45, 45, 45, 1);
 }
@@ -93,9 +93,6 @@ button#favorites {
   border: none;
 }
 
-.count-favorites {
-}  
-
 button:hover {
   background-color: rgba(0, 0, 0, 0.5);
   border-left: 2px rgba(255, 255, 255, 1) inset;
@@ -129,7 +126,7 @@ aside {
   top: 100px;
   width: 270px;
   height: 100vh;
-  padding: 15px;
+  padding: 5px 15px;
   /* background-color: rgba(0, 0, 0, 1); */
   overflow: hidden;
 }    
