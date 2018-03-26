@@ -18,14 +18,8 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <aside>
-          <Unknown
-                    film={Object {}}
-                    id="scrollMe"
-          />
-</aside>,
-        <main>
-          <header
+        <header>
+          <div
                     className="title-container"
           >
                     <Link
@@ -36,27 +30,28 @@ ShallowWrapper {
                                         SWAPIbox
                               </h2>
                     </Link>
-                    <button
-                              className="view-favorites"
-                    >
-                              View Favorites
-                              <span
-                                        className="count-favorites"
-                              />
-                    </button>
-          </header>
-          <section
+          </div>
+          <nav
                     className="button-container"
           >
                     <NavLink
                               activeClassName="active"
+                              activeStyle={
+                                        Object {
+                                                  "color": "black",
+                                                }
+                              }
                               ariaCurrent="true"
                               to="/people"
                     >
-                              <button
-                                        className="nav"
-                              >
-                                        People
+                              <button>
+                                        <img
+                                                  alt="people icon"
+                                                  src="people-icon.svg"
+                                        />
+                                        <h4>
+                                                  People
+                                        </h4>
                               </button>
                     </NavLink>
                     <NavLink
@@ -64,10 +59,14 @@ ShallowWrapper {
                               ariaCurrent="true"
                               to="/planets"
                     >
-                              <button
-                                        className="nav"
-                              >
-                                        Planets
+                              <button>
+                                        <img
+                                                  alt="planets icon"
+                                                  src="planets-icon.svg"
+                                        />
+                                        <h4>
+                                                  Planets
+                                        </h4>
                               </button>
                     </NavLink>
                     <NavLink
@@ -75,14 +74,52 @@ ShallowWrapper {
                               ariaCurrent="true"
                               to="/vehicles"
                     >
-                              <button
-                                        className="nav"
-                              >
-                                        Vehicles
+                              <button>
+                                        <img
+                                                  alt="vehicles icon"
+                                                  src="vehicles-icon.svg"
+                                        />
+                                        <h4>
+                                                  Vehicles
+                                        </h4>
                               </button>
                     </NavLink>
-          </section>
-          <section>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/favorites"
+                    >
+                              <button
+                                        id="favorites"
+                              >
+                                        <img
+                                                  alt="favorites icon"
+                                                  src="favorites-icon.svg"
+                                        />
+                                        <h4>
+                                                  Favorites
+                                        </h4>
+                              </button>
+                    </NavLink>
+                    <div
+                              className="count-container"
+                    >
+                              <div
+                                        className="count-favorites"
+                              />
+                    </div>
+          </nav>
+</header>,
+        <main>
+          <aside>
+                    <Unknown
+                              film={Object {}}
+                              id="scrollMe"
+                    />
+          </aside>
+          <section
+                    className="content"
+          >
                     <Route
                               component={[Function]}
                               exact={true}
@@ -103,6 +140,11 @@ ShallowWrapper {
                               exact={true}
                               path="/vehicles"
                     />
+                    <Route
+                              exact={true}
+                              path="/favorites"
+                              render={[Function]}
+                    />
           </section>
 </main>,
       ],
@@ -115,33 +157,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Unknown
-            film={Object {}}
-            id="scrollMe"
-/>,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "film": Object {},
-            "id": "scrollMe",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        "type": "aside",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
           "children": Array [
-            <header
+            <div
               className="title-container"
 >
               <Link
@@ -152,27 +169,28 @@ ShallowWrapper {
                                           SWAPIbox
                             </h2>
               </Link>
-              <button
-                            className="view-favorites"
-              >
-                            View Favorites
-                            <span
-                                          className="count-favorites"
-                            />
-              </button>
-</header>,
-            <section
+</div>,
+            <nav
               className="button-container"
 >
               <NavLink
                             activeClassName="active"
+                            activeStyle={
+                                          Object {
+                                                        "color": "black",
+                                                      }
+                            }
                             ariaCurrent="true"
                             to="/people"
               >
-                            <button
-                                          className="nav"
-                            >
-                                          People
+                            <button>
+                                          <img
+                                                        alt="people icon"
+                                                        src="people-icon.svg"
+                                          />
+                                          <h4>
+                                                        People
+                                          </h4>
                             </button>
               </NavLink>
               <NavLink
@@ -180,10 +198,14 @@ ShallowWrapper {
                             ariaCurrent="true"
                             to="/planets"
               >
-                            <button
-                                          className="nav"
-                            >
-                                          Planets
+                            <button>
+                                          <img
+                                                        alt="planets icon"
+                                                        src="planets-icon.svg"
+                                          />
+                                          <h4>
+                                                        Planets
+                                          </h4>
                             </button>
               </NavLink>
               <NavLink
@@ -191,14 +213,481 @@ ShallowWrapper {
                             ariaCurrent="true"
                             to="/vehicles"
               >
-                            <button
-                                          className="nav"
-                            >
-                                          Vehicles
+                            <button>
+                                          <img
+                                                        alt="vehicles icon"
+                                                        src="vehicles-icon.svg"
+                                          />
+                                          <h4>
+                                                        Vehicles
+                                          </h4>
                             </button>
               </NavLink>
-</section>,
-            <section>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/favorites"
+              >
+                            <button
+                                          id="favorites"
+                            >
+                                          <img
+                                                        alt="favorites icon"
+                                                        src="favorites-icon.svg"
+                                          />
+                                          <h4>
+                                                        Favorites
+                                          </h4>
+                            </button>
+              </NavLink>
+              <div
+                            className="count-container"
+              >
+                            <div
+                                          className="count-favorites"
+                            />
+              </div>
+</nav>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/"
+>
+                <h2>
+                                SWAPIbox
+                </h2>
+</Link>,
+              "className": "title-container",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <h2>
+                  SWAPIbox
+</h2>,
+                "replace": false,
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "SWAPIbox",
+                },
+                "ref": null,
+                "rendered": "SWAPIbox",
+                "type": "h2",
+              },
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <NavLink
+                  activeClassName="active"
+                  activeStyle={
+                                    Object {
+                                                      "color": "black",
+                                                    }
+                  }
+                  ariaCurrent="true"
+                  to="/people"
+>
+                  <button>
+                                    <img
+                                                      alt="people icon"
+                                                      src="people-icon.svg"
+                                    />
+                                    <h4>
+                                                      People
+                                    </h4>
+                  </button>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/planets"
+>
+                  <button>
+                                    <img
+                                                      alt="planets icon"
+                                                      src="planets-icon.svg"
+                                    />
+                                    <h4>
+                                                      Planets
+                                    </h4>
+                  </button>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/vehicles"
+>
+                  <button>
+                                    <img
+                                                      alt="vehicles icon"
+                                                      src="vehicles-icon.svg"
+                                    />
+                                    <h4>
+                                                      Vehicles
+                                    </h4>
+                  </button>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/favorites"
+>
+                  <button
+                                    id="favorites"
+                  >
+                                    <img
+                                                      alt="favorites icon"
+                                                      src="favorites-icon.svg"
+                                    />
+                                    <h4>
+                                                      Favorites
+                                    </h4>
+                  </button>
+</NavLink>,
+                <div
+                  className="count-container"
+>
+                  <div
+                                    className="count-favorites"
+                  />
+</div>,
+              ],
+              "className": "button-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "activeStyle": Object {
+                    "color": "black",
+                  },
+                  "ariaCurrent": "true",
+                  "children": <button>
+                    <img
+                                        alt="people icon"
+                                        src="people-icon.svg"
+                    />
+                    <h4>
+                                        People
+                    </h4>
+</button>,
+                  "to": "/people",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <img
+                        alt="people icon"
+                        src="people-icon.svg"
+/>,
+                      <h4>
+                        People
+</h4>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "alt": "people icon",
+                        "src": "people-icon.svg",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "People",
+                      },
+                      "ref": null,
+                      "rendered": "People",
+                      "type": "h4",
+                    },
+                  ],
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": <button>
+                    <img
+                                        alt="planets icon"
+                                        src="planets-icon.svg"
+                    />
+                    <h4>
+                                        Planets
+                    </h4>
+</button>,
+                  "to": "/planets",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <img
+                        alt="planets icon"
+                        src="planets-icon.svg"
+/>,
+                      <h4>
+                        Planets
+</h4>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "alt": "planets icon",
+                        "src": "planets-icon.svg",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Planets",
+                      },
+                      "ref": null,
+                      "rendered": "Planets",
+                      "type": "h4",
+                    },
+                  ],
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": <button>
+                    <img
+                                        alt="vehicles icon"
+                                        src="vehicles-icon.svg"
+                    />
+                    <h4>
+                                        Vehicles
+                    </h4>
+</button>,
+                  "to": "/vehicles",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <img
+                        alt="vehicles icon"
+                        src="vehicles-icon.svg"
+/>,
+                      <h4>
+                        Vehicles
+</h4>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "alt": "vehicles icon",
+                        "src": "vehicles-icon.svg",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Vehicles",
+                      },
+                      "ref": null,
+                      "rendered": "Vehicles",
+                      "type": "h4",
+                    },
+                  ],
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": <button
+                    id="favorites"
+>
+                    <img
+                                        alt="favorites icon"
+                                        src="favorites-icon.svg"
+                    />
+                    <h4>
+                                        Favorites
+                    </h4>
+</button>,
+                  "to": "/favorites",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <img
+                        alt="favorites icon"
+                        src="favorites-icon.svg"
+/>,
+                      <h4>
+                        Favorites
+</h4>,
+                    ],
+                    "id": "favorites",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "alt": "favorites icon",
+                        "src": "favorites-icon.svg",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Favorites",
+                      },
+                      "ref": null,
+                      "rendered": "Favorites",
+                      "type": "h4",
+                    },
+                  ],
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="count-favorites"
+/>,
+                  "className": "count-container",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 0,
+                    "className": "count-favorites",
+                  },
+                  "ref": null,
+                  "rendered": 0,
+                  "type": "div",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "nav",
+          },
+        ],
+        "type": "header",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <aside>
+              <Unknown
+                            film={Object {}}
+                            id="scrollMe"
+              />
+</aside>,
+            <section
+              className="content"
+>
               <Route
                             component={[Function]}
                             exact={true}
@@ -219,6 +708,11 @@ ShallowWrapper {
                             exact={true}
                             path="/vehicles"
               />
+              <Route
+                            exact={true}
+                            path="/favorites"
+                            render={[Function]}
+              />
 </section>,
           ],
         },
@@ -229,220 +723,25 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <Link
-                  replace={false}
-                  to="/"
->
-                  <h2>
-                                    SWAPIbox
-                  </h2>
-</Link>,
-                <button
-                  className="view-favorites"
->
-                  View Favorites
-                  <span
-                                    className="count-favorites"
-                  />
-</button>,
-              ],
-              "className": "title-container",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": <h2>
-                    SWAPIbox
-</h2>,
-                  "replace": false,
-                  "to": "/",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "SWAPIbox",
-                  },
-                  "ref": null,
-                  "rendered": "SWAPIbox",
-                  "type": "h2",
-                },
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    "View Favorites",
-                    <span
-                      className="count-favorites"
+              "children": <Unknown
+                film={Object {}}
+                id="scrollMe"
 />,
-                  ],
-                  "className": "view-favorites",
-                },
-                "ref": null,
-                "rendered": Array [
-                  "View Favorites",
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": 0,
-                      "className": "count-favorites",
-                    },
-                    "ref": null,
-                    "rendered": 0,
-                    "type": "span",
-                  },
-                ],
-                "type": "button",
-              },
-            ],
-            "type": "header",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <NavLink
-                  activeClassName="active"
-                  ariaCurrent="true"
-                  to="/people"
->
-                  <button
-                                    className="nav"
-                  >
-                                    People
-                  </button>
-</NavLink>,
-                <NavLink
-                  activeClassName="active"
-                  ariaCurrent="true"
-                  to="/planets"
->
-                  <button
-                                    className="nav"
-                  >
-                                    Planets
-                  </button>
-</NavLink>,
-                <NavLink
-                  activeClassName="active"
-                  ariaCurrent="true"
-                  to="/vehicles"
->
-                  <button
-                                    className="nav"
-                  >
-                                    Vehicles
-                  </button>
-</NavLink>,
-              ],
-              "className": "button-container",
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "activeClassName": "active",
-                  "ariaCurrent": "true",
-                  "children": <button
-                    className="nav"
->
-                    People
-</button>,
-                  "to": "/people",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "People",
-                    "className": "nav",
-                  },
-                  "ref": null,
-                  "rendered": "People",
-                  "type": "button",
-                },
-                "type": [Function],
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "film": Object {},
+                "id": "scrollMe",
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "activeClassName": "active",
-                  "ariaCurrent": "true",
-                  "children": <button
-                    className="nav"
->
-                    Planets
-</button>,
-                  "to": "/planets",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Planets",
-                    "className": "nav",
-                  },
-                  "ref": null,
-                  "rendered": "Planets",
-                  "type": "button",
-                },
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "activeClassName": "active",
-                  "ariaCurrent": "true",
-                  "children": <button
-                    className="nav"
->
-                    Vehicles
-</button>,
-                  "to": "/vehicles",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Vehicles",
-                    "className": "nav",
-                  },
-                  "ref": null,
-                  "rendered": "Vehicles",
-                  "type": "button",
-                },
-                "type": [Function],
-              },
-            ],
-            "type": "section",
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "aside",
           },
           Object {
             "instance": null,
@@ -470,7 +769,13 @@ ShallowWrapper {
                   exact={true}
                   path="/vehicles"
 />,
+                <Route
+                  exact={true}
+                  path="/favorites"
+                  render={[Function]}
+/>,
               ],
+              "className": "content",
             },
             "ref": null,
             "rendered": Array [
@@ -526,6 +831,19 @@ ShallowWrapper {
                 "rendered": null,
                 "type": [Function],
               },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "exact": true,
+                  "path": "/favorites",
+                  "render": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
             ],
             "type": "section",
           },
@@ -542,14 +860,8 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <aside>
-            <Unknown
-                        film={Object {}}
-                        id="scrollMe"
-            />
-</aside>,
-          <main>
-            <header
+          <header>
+            <div
                         className="title-container"
             >
                         <Link
@@ -560,27 +872,28 @@ ShallowWrapper {
                                                 SWAPIbox
                                     </h2>
                         </Link>
-                        <button
-                                    className="view-favorites"
-                        >
-                                    View Favorites
-                                    <span
-                                                className="count-favorites"
-                                    />
-                        </button>
-            </header>
-            <section
+            </div>
+            <nav
                         className="button-container"
             >
                         <NavLink
                                     activeClassName="active"
+                                    activeStyle={
+                                                Object {
+                                                            "color": "black",
+                                                          }
+                                    }
                                     ariaCurrent="true"
                                     to="/people"
                         >
-                                    <button
-                                                className="nav"
-                                    >
-                                                People
+                                    <button>
+                                                <img
+                                                            alt="people icon"
+                                                            src="people-icon.svg"
+                                                />
+                                                <h4>
+                                                            People
+                                                </h4>
                                     </button>
                         </NavLink>
                         <NavLink
@@ -588,10 +901,14 @@ ShallowWrapper {
                                     ariaCurrent="true"
                                     to="/planets"
                         >
-                                    <button
-                                                className="nav"
-                                    >
-                                                Planets
+                                    <button>
+                                                <img
+                                                            alt="planets icon"
+                                                            src="planets-icon.svg"
+                                                />
+                                                <h4>
+                                                            Planets
+                                                </h4>
                                     </button>
                         </NavLink>
                         <NavLink
@@ -599,14 +916,52 @@ ShallowWrapper {
                                     ariaCurrent="true"
                                     to="/vehicles"
                         >
-                                    <button
-                                                className="nav"
-                                    >
-                                                Vehicles
+                                    <button>
+                                                <img
+                                                            alt="vehicles icon"
+                                                            src="vehicles-icon.svg"
+                                                />
+                                                <h4>
+                                                            Vehicles
+                                                </h4>
                                     </button>
                         </NavLink>
-            </section>
-            <section>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/favorites"
+                        >
+                                    <button
+                                                id="favorites"
+                                    >
+                                                <img
+                                                            alt="favorites icon"
+                                                            src="favorites-icon.svg"
+                                                />
+                                                <h4>
+                                                            Favorites
+                                                </h4>
+                                    </button>
+                        </NavLink>
+                        <div
+                                    className="count-container"
+                        >
+                                    <div
+                                                className="count-favorites"
+                                    />
+                        </div>
+            </nav>
+</header>,
+          <main>
+            <aside>
+                        <Unknown
+                                    film={Object {}}
+                                    id="scrollMe"
+                        />
+            </aside>
+            <section
+                        className="content"
+            >
                         <Route
                                     component={[Function]}
                                     exact={true}
@@ -627,6 +982,11 @@ ShallowWrapper {
                                     exact={true}
                                     path="/vehicles"
                         />
+                        <Route
+                                    exact={true}
+                                    path="/favorites"
+                                    render={[Function]}
+                        />
             </section>
 </main>,
         ],
@@ -639,33 +999,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Unknown
-              film={Object {}}
-              id="scrollMe"
-/>,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "film": Object {},
-              "id": "scrollMe",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "aside",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
             "children": Array [
-              <header
+              <div
                 className="title-container"
 >
                 <Link
@@ -676,27 +1011,28 @@ ShallowWrapper {
                                                 SWAPIbox
                                 </h2>
                 </Link>
-                <button
-                                className="view-favorites"
-                >
-                                View Favorites
-                                <span
-                                                className="count-favorites"
-                                />
-                </button>
-</header>,
-              <section
+</div>,
+              <nav
                 className="button-container"
 >
                 <NavLink
                                 activeClassName="active"
+                                activeStyle={
+                                                Object {
+                                                                "color": "black",
+                                                              }
+                                }
                                 ariaCurrent="true"
                                 to="/people"
                 >
-                                <button
-                                                className="nav"
-                                >
-                                                People
+                                <button>
+                                                <img
+                                                                alt="people icon"
+                                                                src="people-icon.svg"
+                                                />
+                                                <h4>
+                                                                People
+                                                </h4>
                                 </button>
                 </NavLink>
                 <NavLink
@@ -704,10 +1040,14 @@ ShallowWrapper {
                                 ariaCurrent="true"
                                 to="/planets"
                 >
-                                <button
-                                                className="nav"
-                                >
-                                                Planets
+                                <button>
+                                                <img
+                                                                alt="planets icon"
+                                                                src="planets-icon.svg"
+                                                />
+                                                <h4>
+                                                                Planets
+                                                </h4>
                                 </button>
                 </NavLink>
                 <NavLink
@@ -715,14 +1055,481 @@ ShallowWrapper {
                                 ariaCurrent="true"
                                 to="/vehicles"
                 >
-                                <button
-                                                className="nav"
-                                >
-                                                Vehicles
+                                <button>
+                                                <img
+                                                                alt="vehicles icon"
+                                                                src="vehicles-icon.svg"
+                                                />
+                                                <h4>
+                                                                Vehicles
+                                                </h4>
                                 </button>
                 </NavLink>
-</section>,
-              <section>
+                <NavLink
+                                activeClassName="active"
+                                ariaCurrent="true"
+                                to="/favorites"
+                >
+                                <button
+                                                id="favorites"
+                                >
+                                                <img
+                                                                alt="favorites icon"
+                                                                src="favorites-icon.svg"
+                                                />
+                                                <h4>
+                                                                Favorites
+                                                </h4>
+                                </button>
+                </NavLink>
+                <div
+                                className="count-container"
+                >
+                                <div
+                                                className="count-favorites"
+                                />
+                </div>
+</nav>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/"
+>
+                  <h2>
+                                    SWAPIbox
+                  </h2>
+</Link>,
+                "className": "title-container",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <h2>
+                    SWAPIbox
+</h2>,
+                  "replace": false,
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "SWAPIbox",
+                  },
+                  "ref": null,
+                  "rendered": "SWAPIbox",
+                  "type": "h2",
+                },
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <NavLink
+                    activeClassName="active"
+                    activeStyle={
+                                        Object {
+                                                            "color": "black",
+                                                          }
+                    }
+                    ariaCurrent="true"
+                    to="/people"
+>
+                    <button>
+                                        <img
+                                                            alt="people icon"
+                                                            src="people-icon.svg"
+                                        />
+                                        <h4>
+                                                            People
+                                        </h4>
+                    </button>
+</NavLink>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    to="/planets"
+>
+                    <button>
+                                        <img
+                                                            alt="planets icon"
+                                                            src="planets-icon.svg"
+                                        />
+                                        <h4>
+                                                            Planets
+                                        </h4>
+                    </button>
+</NavLink>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    to="/vehicles"
+>
+                    <button>
+                                        <img
+                                                            alt="vehicles icon"
+                                                            src="vehicles-icon.svg"
+                                        />
+                                        <h4>
+                                                            Vehicles
+                                        </h4>
+                    </button>
+</NavLink>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    to="/favorites"
+>
+                    <button
+                                        id="favorites"
+                    >
+                                        <img
+                                                            alt="favorites icon"
+                                                            src="favorites-icon.svg"
+                                        />
+                                        <h4>
+                                                            Favorites
+                                        </h4>
+                    </button>
+</NavLink>,
+                  <div
+                    className="count-container"
+>
+                    <div
+                                        className="count-favorites"
+                    />
+</div>,
+                ],
+                "className": "button-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "activeStyle": Object {
+                      "color": "black",
+                    },
+                    "ariaCurrent": "true",
+                    "children": <button>
+                      <img
+                                            alt="people icon"
+                                            src="people-icon.svg"
+                      />
+                      <h4>
+                                            People
+                      </h4>
+</button>,
+                    "to": "/people",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <img
+                          alt="people icon"
+                          src="people-icon.svg"
+/>,
+                        <h4>
+                          People
+</h4>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "alt": "people icon",
+                          "src": "people-icon.svg",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "People",
+                        },
+                        "ref": null,
+                        "rendered": "People",
+                        "type": "h4",
+                      },
+                    ],
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": <button>
+                      <img
+                                            alt="planets icon"
+                                            src="planets-icon.svg"
+                      />
+                      <h4>
+                                            Planets
+                      </h4>
+</button>,
+                    "to": "/planets",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <img
+                          alt="planets icon"
+                          src="planets-icon.svg"
+/>,
+                        <h4>
+                          Planets
+</h4>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "alt": "planets icon",
+                          "src": "planets-icon.svg",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Planets",
+                        },
+                        "ref": null,
+                        "rendered": "Planets",
+                        "type": "h4",
+                      },
+                    ],
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": <button>
+                      <img
+                                            alt="vehicles icon"
+                                            src="vehicles-icon.svg"
+                      />
+                      <h4>
+                                            Vehicles
+                      </h4>
+</button>,
+                    "to": "/vehicles",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <img
+                          alt="vehicles icon"
+                          src="vehicles-icon.svg"
+/>,
+                        <h4>
+                          Vehicles
+</h4>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "alt": "vehicles icon",
+                          "src": "vehicles-icon.svg",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Vehicles",
+                        },
+                        "ref": null,
+                        "rendered": "Vehicles",
+                        "type": "h4",
+                      },
+                    ],
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": <button
+                      id="favorites"
+>
+                      <img
+                                            alt="favorites icon"
+                                            src="favorites-icon.svg"
+                      />
+                      <h4>
+                                            Favorites
+                      </h4>
+</button>,
+                    "to": "/favorites",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <img
+                          alt="favorites icon"
+                          src="favorites-icon.svg"
+/>,
+                        <h4>
+                          Favorites
+</h4>,
+                      ],
+                      "id": "favorites",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "alt": "favorites icon",
+                          "src": "favorites-icon.svg",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Favorites",
+                        },
+                        "ref": null,
+                        "rendered": "Favorites",
+                        "type": "h4",
+                      },
+                    ],
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div
+                      className="count-favorites"
+/>,
+                    "className": "count-container",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 0,
+                      "className": "count-favorites",
+                    },
+                    "ref": null,
+                    "rendered": 0,
+                    "type": "div",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "nav",
+            },
+          ],
+          "type": "header",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <aside>
+                <Unknown
+                                film={Object {}}
+                                id="scrollMe"
+                />
+</aside>,
+              <section
+                className="content"
+>
                 <Route
                                 component={[Function]}
                                 exact={true}
@@ -743,6 +1550,11 @@ ShallowWrapper {
                                 exact={true}
                                 path="/vehicles"
                 />
+                <Route
+                                exact={true}
+                                path="/favorites"
+                                render={[Function]}
+                />
 </section>,
             ],
           },
@@ -753,220 +1565,25 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": Array [
-                  <Link
-                    replace={false}
-                    to="/"
->
-                    <h2>
-                                        SWAPIbox
-                    </h2>
-</Link>,
-                  <button
-                    className="view-favorites"
->
-                    View Favorites
-                    <span
-                                        className="count-favorites"
-                    />
-</button>,
-                ],
-                "className": "title-container",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "children": <h2>
-                      SWAPIbox
-</h2>,
-                    "replace": false,
-                    "to": "/",
-                  },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "SWAPIbox",
-                    },
-                    "ref": null,
-                    "rendered": "SWAPIbox",
-                    "type": "h2",
-                  },
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      "View Favorites",
-                      <span
-                        className="count-favorites"
+                "children": <Unknown
+                  film={Object {}}
+                  id="scrollMe"
 />,
-                    ],
-                    "className": "view-favorites",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "View Favorites",
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": 0,
-                        "className": "count-favorites",
-                      },
-                      "ref": null,
-                      "rendered": 0,
-                      "type": "span",
-                    },
-                  ],
-                  "type": "button",
-                },
-              ],
-              "type": "header",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    to="/people"
->
-                    <button
-                                        className="nav"
-                    >
-                                        People
-                    </button>
-</NavLink>,
-                  <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    to="/planets"
->
-                    <button
-                                        className="nav"
-                    >
-                                        Planets
-                    </button>
-</NavLink>,
-                  <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    to="/vehicles"
->
-                    <button
-                                        className="nav"
-                    >
-                                        Vehicles
-                    </button>
-</NavLink>,
-                ],
-                "className": "button-container",
               },
               "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "function",
-                  "props": Object {
-                    "activeClassName": "active",
-                    "ariaCurrent": "true",
-                    "children": <button
-                      className="nav"
->
-                      People
-</button>,
-                    "to": "/people",
-                  },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "People",
-                      "className": "nav",
-                    },
-                    "ref": null,
-                    "rendered": "People",
-                    "type": "button",
-                  },
-                  "type": [Function],
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "film": Object {},
+                  "id": "scrollMe",
                 },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "function",
-                  "props": Object {
-                    "activeClassName": "active",
-                    "ariaCurrent": "true",
-                    "children": <button
-                      className="nav"
->
-                      Planets
-</button>,
-                    "to": "/planets",
-                  },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Planets",
-                      "className": "nav",
-                    },
-                    "ref": null,
-                    "rendered": "Planets",
-                    "type": "button",
-                  },
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "function",
-                  "props": Object {
-                    "activeClassName": "active",
-                    "ariaCurrent": "true",
-                    "children": <button
-                      className="nav"
->
-                      Vehicles
-</button>,
-                    "to": "/vehicles",
-                  },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Vehicles",
-                      "className": "nav",
-                    },
-                    "ref": null,
-                    "rendered": "Vehicles",
-                    "type": "button",
-                  },
-                  "type": [Function],
-                },
-              ],
-              "type": "section",
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "aside",
             },
             Object {
               "instance": null,
@@ -994,7 +1611,13 @@ ShallowWrapper {
                     exact={true}
                     path="/vehicles"
 />,
+                  <Route
+                    exact={true}
+                    path="/favorites"
+                    render={[Function]}
+/>,
                 ],
+                "className": "content",
               },
               "ref": null,
               "rendered": Array [
@@ -1045,6 +1668,19 @@ ShallowWrapper {
                     "component": [Function],
                     "exact": true,
                     "path": "/vehicles",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "exact": true,
+                    "path": "/favorites",
+                    "render": [Function],
                   },
                   "ref": null,
                   "rendered": null,

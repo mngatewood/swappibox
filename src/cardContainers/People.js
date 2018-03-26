@@ -22,7 +22,7 @@ const People = (people) => {
 };
 
 People.propTypes = {
-  people: PropTypes.object
+  people: PropTypes.array
 };
 
 export default People;
