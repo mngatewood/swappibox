@@ -8,6 +8,6 @@ const router = (
   <BrowserRouter>
     <App />
   </BrowserRouter>
-)
+);
 
 ReactDOM.render(router, document.getElementById('root'));
