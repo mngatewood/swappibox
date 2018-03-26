@@ -1,3 +1,15 @@
+## SWAPIbox
+
+A project for Turing School of Software and Design Front-End Engineering Program, Module 3.
+
+## Synopsis
+
+This project is a card-based interface displaying key information on the people, planets and vehicles of the Star Wars franchise. This information is called from the Star Wars API using nested fetch calls and Promise.all(). The project also provides functionality to select and display the user's favorite cards.
+
+## Screen Shot
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
